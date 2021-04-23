@@ -200,7 +200,11 @@ public class Bai411 extends JFrame implements ActionListener{
 					txtkq.setText("");
 					sttEquals = false;
 				}
-				txtkq.setText(txtkq.getText() + "1/");
+				try {
+					txtkq.setText(Double.toString(1 / Double.parseDouble(txtkq.getText())));
+				}
+				catch(Exception ex) {
+				}
 				break;
 			case "Backspace":
 				txtkq.setText(txtkq.getText().substring(0, txtkq.getText().length() - 1));
@@ -268,7 +272,7 @@ public class Bai411 extends JFrame implements ActionListener{
 				else if (sttPercent) {
 					a = temp;
 					sttPercent = false;
-					lb.setText(txtkq.getText() + " + ");
+					lb.setText(txtkq.getText() + " - ");
 				}
 				else {
 					a = Double.parseDouble(txtkq.getText());
@@ -286,7 +290,7 @@ public class Bai411 extends JFrame implements ActionListener{
 				else if (sttPercent) {
 					a = temp;
 					sttPercent = false;
-					lb.setText(txtkq.getText() + " + ");
+					lb.setText(txtkq.getText() + " * ");
 				}
 				else {
 					a = Double.parseDouble(txtkq.getText());
@@ -304,7 +308,7 @@ public class Bai411 extends JFrame implements ActionListener{
 				else if (sttPercent) {
 					a = temp;
 					sttPercent = false;
-					lb.setText(txtkq.getText() + " + ");
+					lb.setText(txtkq.getText() + " / ");
 				}
 				else {
 					a = Double.parseDouble(txtkq.getText());
