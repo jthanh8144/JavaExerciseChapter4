@@ -6,7 +6,7 @@ import javax.swing.border.EmptyBorder;
 public class Bai411 extends JFrame implements ActionListener{
 	double a = 0, b = 0, temp = 0, result = 0;
 	int operation = 0;
-	boolean sttSqrt = false, sttEquals = false, sttPercent = false;
+	boolean sttSqrt = false, sttEquals = false, sttPercent = false, sttMs = false;
 	JLabel lb;
 	JTextField txtkq, txt;
 	JPanel pn, pn1, pn2, pn20, pn3, pn30, pn31, pn32;
@@ -230,8 +230,12 @@ public class Bai411 extends JFrame implements ActionListener{
 				}
 				break;
 			case "MS":
-				if (txtkq.getText() != "") {
-					txt.setText("MS");
+				txt.setText("MS");
+				if (!sttMs) {
+					result = Double.parseDouble(txtkq.getText());
+					sttMs = true;
+				}
+				else if (txtkq.getText() != "") {
 					result -= Double.parseDouble(txtkq.getText());
 				}
 				break;
@@ -318,6 +322,7 @@ public class Bai411 extends JFrame implements ActionListener{
 				operation = 4;
 				break;
 			case "=":
+				if (sttEquals) break;
 				if (txtkq.getText() == "") break;
 				if (sttSqrt) {
 					b = Math.sqrt(Double.parseDouble(txtkq.getText()));
